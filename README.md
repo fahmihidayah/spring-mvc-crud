@@ -8,6 +8,7 @@ Maven 3.0
 
 
 *How To Run*  
-mvn jetty:run  
-open browser and navigate http://localhost:8080/
+mvn jetty:run
+
+open browser and navigate http://localhost:8080/hello
 
