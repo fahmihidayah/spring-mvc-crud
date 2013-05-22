@@ -1,6 +1,8 @@
-package com.demo.controller;
+package me.ucheng.demo.controller;
 
 import javax.validation.Valid;
+
+import me.ucheng.demo.domain.FormBean;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -10,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.demo.domain.FormBean;
 
 @Controller
 @SessionAttributes("formBean")
