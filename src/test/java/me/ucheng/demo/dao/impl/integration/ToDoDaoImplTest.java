@@ -11,18 +11,18 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-
 public class ToDoDaoImplTest {
 	
 	private ToDoDao dao;
 	private ApplicationContext appContext ;
+
 	@Before
 	public void before() {
 		appContext = new ClassPathXmlApplicationContext(new String[] {
 		    			  "datasource.xml",
 		    			  "hibernate.xml",
-		    			  "todo-spring.xml"
 		    	  });
+		//need to fix this
 		dao = (ToDoDao) appContext.getBean("toDoDao");
 	}
 	
