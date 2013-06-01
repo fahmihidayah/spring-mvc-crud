@@ -1,4 +1,4 @@
-package me.ucheng.demo.controller;
+package me.ucheng.todo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

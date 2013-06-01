@@ -1,8 +1,8 @@
-package me.ucheng.demo.dao;
+package me.ucheng.todo.dao;
 
 import java.util.List;
 
-import me.ucheng.demo.domain.ToDo;
+import me.ucheng.todo.domain.ToDo;
 
 public interface ToDoDao {
 
@@ -10,4 +10,5 @@ public interface ToDoDao {
 	public void update(ToDo todo);
 	public void delete(ToDo todo);
 	public List<ToDo> getAll();
+	public ToDo getById(String id);
 }

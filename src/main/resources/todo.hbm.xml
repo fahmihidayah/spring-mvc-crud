@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
  
 <hibernate-mapping>
-    <class name="me.ucheng.demo.domain.ToDo" table="todos" catalog="todolist">
+    <class name="me.ucheng.todo.domain.ToDo" table="todos" catalog="todolist">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />

@@ -4,7 +4,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  
    <!-- Stock Data Access Object -->
-   <bean id="toDoDao" class="me.ucheng.demo.dao.impl.ToDoDaoImpl" >
+   <bean id="toDoDao" class="me.ucheng.todo.dao.impl.ToDoDaoImpl" >
    		<property name="sessionFactory" ref="sessionFactory" />
    </bean>
  

@@ -1,4 +1,4 @@
-package me.ucheng.demo.domain;
+package me.ucheng.todo.domain;
 
 import org.hibernate.validator.constraints.NotEmpty;
 

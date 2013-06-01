@@ -1,11 +1,11 @@
-package me.ucheng.demo.dao.impl;
+package me.ucheng.todo.dao.impl;
 
 import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import me.ucheng.demo.dao.ToDoDao;
-import me.ucheng.demo.domain.ToDo;
+import me.ucheng.todo.dao.ToDoDao;
+import me.ucheng.todo.domain.ToDo;
 
 public class ToDoDaoImpl extends HibernateDaoSupport implements ToDoDao {
 
@@ -21,9 +21,14 @@ public class ToDoDaoImpl extends HibernateDaoSupport implements ToDoDao {
 		getHibernateTemplate().delete(todo);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<ToDo> getAll() {
-		List<ToDo> list = (List<ToDo>)getHibernateTemplate().find("from list");
+		List<ToDo> list = getHibernateTemplate().find("from ToDo");
 		return list;
+	}
+	
+	public ToDo getById(String id) {
+		return (ToDo) getHibernateTemplate().find("from ToDo t where t.id=?", id);
 	}
 
 }

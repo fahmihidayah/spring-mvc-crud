@@ -1,8 +1,8 @@
-package me.ucheng.demo.controller;
+package me.ucheng.todo.controller;
 
 import javax.validation.Valid;
 
-import me.ucheng.demo.domain.FormBean;
+import me.ucheng.todo.domain.FormBean;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
