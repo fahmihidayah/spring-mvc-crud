@@ -6,26 +6,25 @@ import java.util.UUID;
 import me.ucheng.todo.dao.ToDoDao;
 import me.ucheng.todo.domain.ToDo;
 
-import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+/*
+ * To run this test you need to start MySQL server first
+ */
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("/todo-spring.xml")
 public class ToDoDaoImplTest {
 	
+	@Autowired
+	@Qualifier("toDoDao")
 	private ToDoDao dao;
-	private ApplicationContext appContext ;
 
-	@Before
-	public void before() {
-		appContext = new ClassPathXmlApplicationContext(new String[] {
-		    			  "datasource.xml",
-		    			  "hibernate.xml",
-		    	  });
-		//need to fix this
-		dao = (ToDoDao) appContext.getBean("toDoDao");
-	}
-	
 	@Test
 	public void shouldSaveToDo() {
 		ToDo todo = new ToDo();
