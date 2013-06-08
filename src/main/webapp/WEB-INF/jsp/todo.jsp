@@ -17,6 +17,14 @@
         <tr>
             <td>${toDo.description}</td>
             <td>${toDo.status}</td>
+            <td>
+            	<c:url var="deleteUrl" value="/todo/delete"/>  
+            	<form:form action="${deleteUrl}" method="post">
+            	<input id="toDoId" name="toDoId" type="hidden" value="${toDo.id}"/>
+      			<input type="submit" value="delete" onClick="return confirm('sure?')"/>
+            	</form:form>
+            
+            </td>
         </tr>
     </c:forEach>
 </table>

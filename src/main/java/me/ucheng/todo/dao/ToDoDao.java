@@ -10,5 +10,5 @@ public interface ToDoDao {
 	public void update(ToDo todo);
 	public void delete(ToDo todo);
 	public List<ToDo> getAll();
-	public ToDo getById(String id);
+	public ToDo getById(int id);
 }

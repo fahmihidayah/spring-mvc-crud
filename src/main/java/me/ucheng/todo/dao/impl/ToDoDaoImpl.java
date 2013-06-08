@@ -35,8 +35,8 @@ public class ToDoDaoImpl extends HibernateDaoSupport implements ToDoDao {
 		return list;
 	}
 	
-	public ToDo getById(String id) {
-		return (ToDo) getHibernateTemplate().find("from ToDo t where t.id=?", id);
+	public ToDo getById(int id) {
+		return getHibernateTemplate().get(ToDo.class, id);
 	}
 
 }

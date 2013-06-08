@@ -31,4 +31,11 @@ public class ToDoServiceImpl implements ToDoService {
 		return toDoDao.getAll();
 	}
 
+	public void delete(int id) {
+		ToDo toDo = toDoDao.getById(id);
+		if (toDo != null) {
+			toDoDao.delete(toDo);
+		}
+	}
+
 }
