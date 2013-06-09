@@ -15,16 +15,20 @@ public class ToDoServiceImpl implements ToDoService {
 	@Autowired
 	private ToDoDao toDoDao;
 	
-	public void save(ToDo todo) {
-		toDoDao.save(todo);
+	public void save(ToDo toDo) {
+		toDoDao.save(toDo);
 	}
 
-	public void update(ToDo todo) {
-		toDoDao.save(todo);
+	public void update(ToDo toDo) {
+		toDoDao.update(toDo);
 	}
 
-	public void delete(ToDo todo) {
-		toDoDao.delete(todo);
+	public void delete(ToDo toDo) {
+		toDoDao.delete(toDo);
+	}
+	
+	public ToDo getById(int id) {
+		return toDoDao.getById(id);
 	}
 
 	public List<ToDo> getAll() {

@@ -46,9 +46,24 @@ public class ToDoController {
 		return "redirect:/todo";
 	}
 	
-	@RequestMapping(value = "/todo/delete", method= RequestMethod.POST)
+	@RequestMapping(value = "/todo/delete", method = RequestMethod.POST)
 	public String deleteToDo(@RequestParam("toDoId") int toDoId) {
 		toDoService.delete(toDoId);
+		return "redirect:/todo";
+	}
+	
+	@RequestMapping(value = "/todo/edit/{id}", method = RequestMethod.GET)
+	public ModelAndView edit(@PathVariable int id) {
+		ToDo toDo = toDoService.getById(id);
+		return new ModelAndView("edit", "toDo", toDo);
+	}
+	
+	@RequestMapping(value = "/todo/edit", method = RequestMethod.POST)
+	public String update(@RequestParam("id") int id, @RequestParam("description") String description, @RequestParam("status") String status) {
+		ToDo toDo = toDoService.getById(id);
+		toDo.setDescription(description);
+		toDo.setStatus(status);
+		toDoService.update(toDo);
 		return "redirect:/todo";
 	}
 

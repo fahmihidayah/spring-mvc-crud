@@ -10,5 +10,6 @@ public interface ToDoService {
 	public void update(ToDo todo);
 	public void delete(ToDo todo);
 	public void delete(int id);
+	public ToDo getById(int id);
 	public List<ToDo> getAll();
 }
