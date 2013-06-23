@@ -46,9 +46,9 @@ public class ToDoController {
 		return "redirect:/todo";
 	}
 	
-	@RequestMapping(value = "/todo/delete", method = RequestMethod.POST)
-	public String deleteToDo(@RequestParam("toDoId") int toDoId) {
-		toDoService.delete(toDoId);
+	@RequestMapping(value = "/todo/delete/{id}", method = RequestMethod.GET)
+	public String deleteToDo(@PathVariable int id) {
+		toDoService.delete(id);
 		return "redirect:/todo";
 	}
 	
