@@ -66,5 +66,13 @@ public class ToDoController {
 		toDoService.update(toDo);
 		return "redirect:/todo";
 	}
+	
+	@RequestMapping(value = "/todo/done/{id}", method = RequestMethod.GET)
+	public String done(@PathVariable int id) {
+		ToDo toDo = toDoService.getById(id);
+		toDo.setStatus("done");
+		toDoService.update(toDo);
+		return "redirect:/todo";
+	}
 
 }

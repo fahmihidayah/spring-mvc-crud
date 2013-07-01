@@ -8,7 +8,7 @@ public class ToDo implements Serializable{
 	
 	private Integer id;
 	private String description;
-	private String status;
+	private String status = "undo";
 	
 	public Integer getId() {
 		return id;

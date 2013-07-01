@@ -40,7 +40,6 @@
 <div class="container">
 <form:form class="form-inline" id="todo" action="/todo" method="post" modelAttribute="todoBean">
     <form:input path="description" class="span2" placeholder="I want to do..."/>
-    <form:input path="status" class="span2" placeholder="todo status..."/>
     <button type="submit" class="btn btn-primary">Do It!</button>
 </form:form>
 
@@ -49,9 +48,10 @@
         <tr id="toDo-${toDo.id}" onClick="edit(${toDo.id})">
             <td id="toDo-${toDo.id}-desc" style="width: 40%">${toDo.description}</td>
             <td id="todo-${toDo.id}-status" style="width: 40%">${toDo.status}</td>
-            <td style="width: 10%">
+            <td><a href="/todo/done/${toDo.id}" class="btn btn-mini"><i class="icon-ok"></i></a></td>
+            <td>
             	<a href="/todo/delete/${toDo.id}" class="btn btn-mini"><i class="icon-trash"></i></a>  
-            </td style="width: 10%">
+            </td>
             <td><a href="/todo/edit/${toDo.id}" class="btn btn-mini"><i class="icon-edit"></i></a></td>
         </tr>
     </c:forEach>
