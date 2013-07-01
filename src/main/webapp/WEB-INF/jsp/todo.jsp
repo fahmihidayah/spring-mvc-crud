@@ -43,8 +43,16 @@
     <button type="submit" class="btn btn-primary">Do It!</button>
 </form:form>
 
-<table class="table table-stripe table-condensed table-hover">
+<div class="tabbable tabs-left">
+<ul class="nav nav-tabs">
+<li class="active"><a data-toggle="tab" href="#tab1">ToDo</a></li>
+<li><a data-toggle="tab" href="#tab2">Done</a></li>
+</ul>
+<div class="tab-content">
+	<div class="tab-pane active" id="tab1">
+	<table class="table table-stripe table-condensed table-hover">
 <c:forEach items="${toDoList.toDos}" var="toDo" varStatus="status">
+<c:if test="${toDo.status == 'undo'}">
         <tr id="toDo-${toDo.id}" onClick="edit(${toDo.id})">
             <td id="toDo-${toDo.id}-desc" style="width: 40%">${toDo.description}</td>
             <td id="todo-${toDo.id}-status" style="width: 40%">${toDo.status}</td>
@@ -54,10 +62,33 @@
             </td>
             <td><a href="/todo/edit/${toDo.id}" class="btn btn-mini"><i class="icon-edit"></i></a></td>
         </tr>
+        </c:if>
     </c:forEach>
 </table>
-</div>
-<script src="http://code.jquery.com/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
+	</div>
+	<div class="tab-pane" id="tab2">
+		<table class="table table-stripe table-condensed table-hover">
+<c:forEach items="${toDoList.toDos}" var="toDo" varStatus="status">
+<c:if test="${toDo.status == 'done'}">
+        <tr id="toDo-${toDo.id}" onClick="edit(${toDo.id})">
+            <td id="toDo-${toDo.id}-desc" style="width: 40%">${toDo.description}</td>
+            <td id="todo-${toDo.id}-status" style="width: 40%">${toDo.status}</td>
+            <td><a href="/todo/done/${toDo.id}" class="btn btn-mini"><i class="icon-ok"></i></a></td>
+            <td>
+            	<a href="/todo/delete/${toDo.id}" class="btn btn-mini"><i class="icon-trash"></i></a>  
+            </td>
+            <td><a href="/todo/edit/${toDo.id}" class="btn btn-mini"><i class="icon-edit"></i></a></td>
+        </tr>
+        </c:if>
+    </c:forEach>
+</table>
+	</div>
+
+</div><!-- tab-content -->
+
+</div><!-- tabbable -->
+</div><!-- container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
 </body>
 </html>
