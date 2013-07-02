@@ -4,7 +4,7 @@ spring-mvc-crud
 A simple CRUD web app(a todo list) using SpringMVC, Jetty, MySQL, Maven and Twitter Bootstrap
 
 ## Setup
-please install Maven and MySQL to run this app
+please install Maven and MySQL to run this app  
 [Maven 3.0](http://maven.apache.org/)  
 [MySQL](http://www.mysql.com/)  
 
