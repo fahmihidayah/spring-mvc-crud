@@ -71,13 +71,11 @@
 <c:forEach items="${toDoList.toDos}" var="toDo" varStatus="status">
 <c:if test="${toDo.status == 'done'}">
         <tr id="toDo-${toDo.id}" onClick="edit(${toDo.id})">
-            <td id="toDo-${toDo.id}-desc" style="width: 40%">${toDo.description}</td>
-            <td id="todo-${toDo.id}-status" style="width: 40%">${toDo.status}</td>
-            <td><a href="/todo/done/${toDo.id}" class="btn btn-mini"><i class="icon-ok"></i></a></td>
+            <td id="toDo-${toDo.id}-desc" style="width: 45%">${toDo.description}</td>
+            <td id="todo-${toDo.id}-status" style="width: 45%">${toDo.status}</td>
             <td>
             	<a href="/todo/delete/${toDo.id}" class="btn btn-mini"><i class="icon-trash"></i></a>  
             </td>
-            <td><a href="/todo/edit/${toDo.id}" class="btn btn-mini"><i class="icon-edit"></i></a></td>
         </tr>
         </c:if>
     </c:forEach>
