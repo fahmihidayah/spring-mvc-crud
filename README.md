@@ -1,7 +1,7 @@
 spring-mvc-crud
 ===============
 
-A simple CRUD web app using SpringMVC, Jetty, MySQL, Maven and Twitter Bootstrap
+A simple CRUD web app(a todo list) using SpringMVC, Jetty, MySQL, Maven and Twitter Bootstrap
 
 ## Setup
 Maven 3.0    
