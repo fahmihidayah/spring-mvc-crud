@@ -4,14 +4,6 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.css" />"  />
-<style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-      
-      table { table-layout: fixed; }
- 	  table th, table td { overflow: hidden; }
-    </style>
 </head>
 
 <body>
@@ -23,7 +15,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">ToDo</a>
+          <a class="brand" href="/todo">ToDo</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="#about">About</a></li>
