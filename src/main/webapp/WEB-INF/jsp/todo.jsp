@@ -50,10 +50,10 @@
 </ul>
 <div class="tab-content">
 	<div class="tab-pane active" id="tab1">
-	<table class="table table-stripe table-condensed table-hover">
+	<table class="table table-stripe table-condensed table-hover" id="todotable">
 <c:forEach items="${toDoList.toDos}" var="toDo" varStatus="status">
 <c:if test="${toDo.status == 'undo'}">
-        <tr id="toDo-${toDo.id}" onClick="edit(${toDo.id})">
+        <tr id="${toDo.id}">
             <td id="toDo-${toDo.id}-desc" style="width: 40%">${toDo.description}</td>
             <td id="todo-${toDo.id}-status" style="width: 40%">${toDo.status}</td>
             <td><a href="/todo/done/${toDo.id}" class="btn btn-mini"><i class="icon-ok"></i></a></td>
@@ -61,6 +61,7 @@
             	<a href="/todo/delete/${toDo.id}" class="btn btn-mini"><i class="icon-trash"></i></a>  
             </td>
             <td><a href="/todo/edit/${toDo.id}" class="btn btn-mini"><i class="icon-edit"></i></a></td>
+            <td>${toDo.id}</td>
         </tr>
         </c:if>
     </c:forEach>
@@ -70,7 +71,7 @@
 		<table class="table table-stripe table-condensed table-hover">
 <c:forEach items="${toDoList.toDos}" var="toDo" varStatus="status">
 <c:if test="${toDo.status == 'done'}">
-        <tr id="toDo-${toDo.id}" onClick="edit(${toDo.id})">
+        <tr id="toDo-${toDo.id}">
             <td id="toDo-${toDo.id}-desc" style="width: 45%">${toDo.description}</td>
             <td id="todo-${toDo.id}-status" style="width: 45%">${toDo.status}</td>
             <td>
@@ -80,7 +81,7 @@
         </c:if>
     </c:forEach>
 </table>
-	</div>
+</div>
 
 </div><!-- tab-content -->
 
@@ -88,5 +89,34 @@
 </div><!-- container -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
+<script src="/resources/js/jquery.tablednd.js"></script>
+<script type="text/javascript">
+ 		$(document).ready(function() {
+        	$("#todotable").tableDnD({
+        		onDrop: function(table, row){
+        			var rows = table.tBodies[0].rows;
+        			var itemOrder = new Array();
+        			for (var i=0; i< rows.length; i++) {
+        		       itemOrder.push(rows[i].id);
+        		    }
+        			var requestEntry = {"updateEntries" : itemOrder};
+        			var json = JSON.stringify(requestEntry);
+        			$.ajax({
+        		        type: "POST",
+        		        contentType: "application/json",
+        		        dataType: "json",
+        		        url: "/todo/updateOrder",
+        		        data : json,
+        		        success: function(result) {
+        		        	//do nothing
+        		        },
+        		        error: function (jqXHR, textStatus, errorThrown) {
+        		            alert(jqXHR.status + ":" + jqXHR.responseText + " : " + textStatus + " : " + errorThrown);
+        		        }
+        		    });
+        		}
+        	});
+    	});
+</script>
 </body>
 </html>

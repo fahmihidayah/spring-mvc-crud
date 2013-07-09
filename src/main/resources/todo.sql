@@ -10,11 +10,12 @@ USE `todolist` ;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `todolist`.`todos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `description` VARCHAR(300) NULL DEFAULT NULL ,
-  `status` TEXT NULL DEFAULT NULL ,
+  `description` VARCHAR(300) NOT NULL ,
+  `status` TEXT NOT NULL ,
+  `priority` INT(11) NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 34
+AUTO_INCREMENT = 41
 DEFAULT CHARACTER SET = utf8;
 
 USE `todolist` ;
